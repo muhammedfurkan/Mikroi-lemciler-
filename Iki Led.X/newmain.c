@@ -3,6 +3,8 @@
  * Author: batuhan osma
  *
  * Created on 20 ?ubat 2017 Pazartesi, 21:50
+ * 
+ ***Sırayla yanıp sönen iki led örneği***
  */
 
 
