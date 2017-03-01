@@ -1,0 +1,384 @@
+
+
+Microchip Technology PIC LITE Macro Assembler V1.41 build -162212810 
+                                                                                               Tue Feb 28 22:45:14 2017
+
+Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250102
+     1                           	processor	16F84A
+     2                           	opt	pw 120
+     3                           	opt	lm
+     4                           	psect	nvBANK0,global,class=BANK0,space=1,delta=1
+     5                           	psect	bitnvBANK0,global,bit,class=BANK0,space=1,delta=1
+     6                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     7                           	psect	bitbssBANK0,global,bit,class=BANK0,space=1,delta=1
+     8                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1
+     9                           	psect	maintext,global,class=CODE,split=1,delta=2
+    10                           	dabs	1,0x4E,2
+    11  0000                     
+    12                           ; Version 1.41
+    13                           ; Generated 25/01/2017 GMT
+    14                           ; 
+    15                           ; Copyright © 2017, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    16                           ; All rights reserved.
+    17                           ; 
+    18                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    19                           ; 
+    20                           ; Redistribution and use in source and binary forms, with or without modification, are
+    21                           ; permitted provided that the following conditions are met:
+    22                           ; 
+    23                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    24                           ;        conditions and the following disclaimer.
+    25                           ; 
+    26                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    27                           ;        of conditions and the following disclaimer in the documentation and/or other
+    28                           ;        materials provided with the distribution.
+    29                           ; 
+    30                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    31                           ;        software without specific prior written permission.
+    32                           ; 
+    33                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    34                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    35                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    36                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    37                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    38                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    39                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    40                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    41                           ; 
+    42                           ; 
+    43                           ; Code-generator required, PIC16F84A Definitions
+    44                           ; 
+    45                           ; SFR Addresses
+    46  0000                     	;# 
+    47  0001                     	;# 
+    48  0002                     	;# 
+    49  0003                     	;# 
+    50  0004                     	;# 
+    51  0005                     	;# 
+    52  0006                     	;# 
+    53  0008                     	;# 
+    54  0009                     	;# 
+    55  000A                     	;# 
+    56  000B                     	;# 
+    57  0081                     	;# 
+    58  0085                     	;# 
+    59  0086                     	;# 
+    60  0088                     	;# 
+    61  0089                     	;# 
+    62                           
+    63                           	psect	nvBANK0
+    64  000E                     __pnvBANK0:	
+    65  000E                     _say:	
+    66  000E                     	ds	1
+    67                           
+    68                           	psect	bitnvBANK0
+    69  0060                     __pbitnvBANK0:	
+    70  0060                     _bdown_simdiki:	
+    71  0060                     	ds	1
+    72  0061                     _bup_simdiki:	
+    73  0061                     	ds	1
+    74  0006                     _PORTB	set	6
+    75  0029                     _RA1	set	41
+    76  0028                     _RA0	set	40
+    77  0086                     _TRISB	set	134
+    78  0429                     _TRISA1	set	1065
+    79  0428                     _TRISA0	set	1064
+    80                           
+    81                           	psect	cinit
+    82  03FD                     start_initialization:	
+    83                           ; #config settings
+    84                           
+    85  03FD                     __initialization:	
+    86                           
+    87                           ; Clear objects allocated to BITBANK0
+    88  03FD  018D               	clrf	(__pbitbssBANK0/(0+8))& (0+127)
+    89  03FE                     end_of_initialization:	
+    90                           ;End of C runtime variable initialization code
+    91                           
+    92  03FE                     __end_of__initialization:	
+    93  03FE  0183               	clrf	3
+    94  03FF  2BB5               	ljmp	_main	;jump to C main() function
+    95                           
+    96                           	psect	bitbssBANK0
+    97  0068                     __pbitbssBANK0:	
+    98  0068                     _bdown_onceki:	
+    99  0068                     	ds	1
+   100  0069                     _bup_onceki:	
+   101  0069                     	ds	1
+   102                           
+   103                           	psect	cstackBANK0
+   104  000F                     __pcstackBANK0:	
+   105  000F                     ?_main:	
+   106  000F                     ??_main:	
+   107                           ; 1 bytes @ 0x0
+   108                           
+   109                           
+   110                           ; 1 bytes @ 0x0
+   111  000F                     	ds	1
+   112                           
+   113                           	psect	maintext
+   114  03B5                     __pmaintext:	
+   115 ;;
+   116 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   117 ;;
+   118 ;; *************** function _main *****************
+   119 ;; Defined at:
+   120 ;;		line 20 in file "newmain.c"
+   121 ;; Parameters:    Size  Location     Type
+   122 ;;		None
+   123 ;; Auto vars:     Size  Location     Type
+   124 ;;		None
+   125 ;; Return value:  Size  Location     Type
+   126 ;;                  1    wreg      void 
+   127 ;; Registers used:
+   128 ;;		wreg, status,2
+   129 ;; Tracked objects:
+   130 ;;		On entry : B00/0
+   131 ;;		On exit  : 0/0
+   132 ;;		Unchanged: 0/0
+   133 ;; Data sizes:     COMMON   BANK0
+   134 ;;      Params:         0       0
+   135 ;;      Locals:         0       0
+   136 ;;      Temps:          0       1
+   137 ;;      Totals:         0       1
+   138 ;;Total ram usage:        1 bytes
+   139 ;; This function calls:
+   140 ;;		Nothing
+   141 ;; This function is called by:
+   142 ;;		Startup code after reset
+   143 ;; This function uses a non-reentrant model
+   144 ;;
+   145                           
+   146                           
+   147                           ;psect for function _main
+   148  03B5                     _main:	
+   149                           
+   150                           ;newmain.c: 22: TRISA0=1;
+   151                           
+   152                           ;incstack = 0
+   153                           ; Regs used in _main: [wreg+status,2]
+   154  03B5  1683               	bsf	3,5	;RP0=1, select bank1
+   155  03B6  1405               	bsf	5,0	;volatile
+   156                           
+   157                           ;newmain.c: 23: TRISA1=1;
+   158  03B7  1485               	bsf	5,1	;volatile
+   159                           
+   160                           ;newmain.c: 24: TRISB=0;
+   161  03B8  0186               	clrf	6	;volatile
+   162                           
+   163                           ;newmain.c: 25: say=1;
+   164  03B9  1283               	bcf	3,5	;RP0=0, select bank0
+   165  03BA  018E               	clrf	_say
+   166  03BB  0A8E               	incf	_say,f
+   167  03BC                     l523:	
+   168                           ;newmain.c: 27: for(;;)
+   169                           
+   170                           
+   171                           ;newmain.c: 28: {
+   172                           ;newmain.c: 29: bup_simdiki=RA0;
+   173  03BC  108C               	bcf	_bup_simdiki/(0+8),_bup_simdiki& (0+7)
+   174  03BD  1805               	btfsc	5,0	;volatile
+   175  03BE  148C               	bsf	_bup_simdiki/(0+8),_bup_simdiki& (0+7)
+   176                           
+   177                           ;newmain.c: 30: bdown_simdiki=RA1;
+   178  03BF  1283               	bcf	3,5	;RP0=0, select bank0
+   179  03C0  100C               	bcf	_bdown_simdiki/(0+8),_bdown_simdiki& (0+7)
+   180  03C1  1885               	btfsc	5,1	;volatile
+   181  03C2  140C               	bsf	_bdown_simdiki/(0+8),_bdown_simdiki& (0+7)
+   182                           
+   183                           ;newmain.c: 32: if(bup_simdiki != bup_onceki)
+   184  03C3  1283               	bcf	3,5	;RP0=0, select bank0
+   185  03C4  1C8D               	btfss	_bup_onceki/(0+8),_bup_onceki& (0+7)
+   186  03C5  2BC8               	goto	u170
+   187  03C6  3001               	movlw	1
+   188  03C7  2BC9               	goto	u172
+   189  03C8                     u170:	
+   190  03C8  3000               	movlw	0
+   191  03C9                     u172:	
+   192  03C9  008F               	movwf	??_main
+   193  03CA  1C8C               	btfss	_bup_simdiki/(0+8),_bup_simdiki& (0+7)
+   194  03CB  2BCE               	goto	u180
+   195  03CC  3001               	movlw	1
+   196  03CD  2BCF               	goto	u182
+   197  03CE                     u180:	
+   198  03CE  3000               	movlw	0
+   199  03CF                     u182:	
+   200  03CF  060F               	xorwf	??_main,w
+   201  03D0  1903               	skipnz
+   202  03D1  2BDF               	goto	l26
+   203                           
+   204                           ;newmain.c: 33: {
+   205                           ;newmain.c: 34: bup_onceki=bup_simdiki;
+   206  03D2  108D               	bcf	_bup_onceki/(0+8),_bup_onceki& (0+7)
+   207  03D3  1C8C               	btfss	_bup_simdiki/(0+8),_bup_simdiki& (0+7)
+   208  03D4  2BD6               	goto	u205
+   209  03D5  148D               	bsf	_bup_onceki/(0+8),_bup_onceki& (0+7)
+   210  03D6                     u205:	
+   211                           
+   212                           ;newmain.c: 35: if(bup_simdiki==0)
+   213  03D6  1283               	bcf	3,5	;RP0=0, select bank0
+   214  03D7  188C               	btfsc	_bup_simdiki/(0+8),_bup_simdiki& (0+7)
+   215  03D8  2BDF               	goto	l26
+   216                           
+   217                           ;newmain.c: 36: {
+   218                           ;newmain.c: 37: if(say>1)
+   219  03D9  3002               	movlw	2
+   220  03DA  020E               	subwf	_say,w
+   221  03DB  1C03               	skipc
+   222  03DC  2BDF               	goto	l26
+   223                           
+   224                           ;newmain.c: 38: {
+   225                           ;newmain.c: 39: say/=2;
+   226  03DD  1003               	clrc
+   227  03DE  0C8E               	rrf	_say,f
+   228  03DF                     l26:	
+   229                           
+   230                           ;newmain.c: 40: }
+   231                           ;newmain.c: 41: }
+   232                           ;newmain.c: 42: }
+   233                           ;newmain.c: 45: if(bdown_simdiki != bdown_onceki)
+   234  03DF  1C0D               	btfss	_bdown_onceki/(0+8),_bdown_onceki& (0+7)
+   235  03E0  2BE3               	goto	u230
+   236  03E1  3001               	movlw	1
+   237  03E2  2BE4               	goto	u232
+   238  03E3                     u230:	
+   239  03E3  3000               	movlw	0
+   240  03E4                     u232:	
+   241  03E4  008F               	movwf	??_main
+   242  03E5  1C0C               	btfss	_bdown_simdiki/(0+8),_bdown_simdiki& (0+7)
+   243  03E6  2BE9               	goto	u240
+   244  03E7  3001               	movlw	1
+   245  03E8  2BEA               	goto	u242
+   246  03E9                     u240:	
+   247  03E9  3000               	movlw	0
+   248  03EA                     u242:	
+   249  03EA  060F               	xorwf	??_main,w
+   250  03EB  1903               	skipnz
+   251  03EC  2BFA               	goto	l29
+   252                           
+   253                           ;newmain.c: 46: {
+   254                           ;newmain.c: 47: bdown_onceki=bdown_simdiki;
+   255  03ED  100D               	bcf	_bdown_onceki/(0+8),_bdown_onceki& (0+7)
+   256  03EE  1C0C               	btfss	_bdown_simdiki/(0+8),_bdown_simdiki& (0+7)
+   257  03EF  2BF1               	goto	u265
+   258  03F0  140D               	bsf	_bdown_onceki/(0+8),_bdown_onceki& (0+7)
+   259  03F1                     u265:	
+   260                           
+   261                           ;newmain.c: 48: if(bdown_simdiki==0)
+   262  03F1  1283               	bcf	3,5	;RP0=0, select bank0
+   263  03F2  180C               	btfsc	_bdown_simdiki/(0+8),_bdown_simdiki& (0+7)
+   264  03F3  2BFA               	goto	l29
+   265                           
+   266                           ;newmain.c: 49: {
+   267                           ;newmain.c: 50: if(say<128)
+   268  03F4  3080               	movlw	128
+   269  03F5  020E               	subwf	_say,w
+   270  03F6  1803               	skipnc
+   271  03F7  2BFA               	goto	l29
+   272                           
+   273                           ;newmain.c: 51: {
+   274                           ;newmain.c: 52: say*=2;
+   275  03F8  1003               	clrc
+   276  03F9  0D8E               	rlf	_say,f
+   277  03FA                     l29:	
+   278                           
+   279                           ;newmain.c: 53: }
+   280                           ;newmain.c: 54: }
+   281                           ;newmain.c: 56: }
+   282                           ;newmain.c: 58: PORTB=say;
+   283  03FA  080E               	movf	_say,w
+   284  03FB  0086               	movwf	6	;volatile
+   285                           
+   286                           ;newmain.c: 59: }
+   287  03FC  2BBC               	goto	l523
+   288  03FD                     __end_of_main:	
+   289                           ;newmain.c: 60: return;
+   290                           
+   291  004E                     btemp	set	78	;btemp
+   292  004E                     wtemp0	set	78
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  1
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON            0      0       0
+    BANK0            66      1       4
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 1     1      0       0
+                                              0 BANK0      1     1      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 0
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMMON            0      0       0       0        0.0%
+EEDATA              40      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+COMMON               0      0       0       1        0.0%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+STACK                0      0       0       2        0.0%
+BANK0               42      1       4       3        6.1%
+ABS                  0      0       4       4        0.0%
+BITBANK0            42      0       2       5        3.0%
+DATA                 0      0       4       6        0.0%
+
+
+Microchip Technology PIC Macro Assembler V1.41 build -162212810 
+Symbol Table                                                                                   Tue Feb 28 22:45:14 2017
+
+                     l26 03DF                       l29 03FA                      l523 03BC  
+                    _RA0 0028                      _RA1 0029                      u205 03D6  
+                    u230 03E3                      u240 03E9                      u232 03E4  
+                    u242 03EA                      u170 03C8                      u180 03CE  
+                    u172 03C9                      u182 03CF                      u265 03F1  
+                    _say 000E                     _main 03B5                     btemp 004E  
+                   start 0000                    ?_main 000F                    _PORTB 0006  
+                  _TRISB 0086                    status 0003                    wtemp0 004E  
+        __initialization 03FD             __end_of_main 03FD                   ??_main 000F  
+                 _TRISA0 0428                   _TRISA1 0429  __end_of__initialization 03FE  
+           __pbitnvBANK0 0060               __pmaintext 03B5             _bdown_onceki 0068  
+             _bup_onceki 0069     end_of_initialization 03FE            __pbitbssBANK0 0068  
+    start_initialization 03FD                ___latbits 0000            __pcstackBANK0 000F  
+              __pnvBANK0 000E            _bdown_simdiki 0060              _bup_simdiki 0061  
+          __size_of_main 0048  
